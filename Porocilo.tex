@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{eurosym}
+
+\begin{document}
+
+\section*{1. NALOGA}
+\subsection*{a)}
+\subsubsection*{Povprečni dohodek}
+
+Populacija je velikosti $43886$. Vzamemo enostavni slučajni vzorec $400$ enot.\\
+Sledi: $N = 43886, n = 400$.\\
+Naj bo $X_k$ skupni dohodek v k-ti družini.\\
+Torej je povprečni dohodek v Kindergradu: 
+\begin{equation}
+\overline{X} = \frac{X_1 + ... + X_n}{n}.
+\end{equation}
+
+\subsubsection*{Standardna napaka}
+Vemo: $se( \overline{X} ) = \sqrt{var( \overline{X} )}$. Ker imamo enostavni slučajni vzorec, vemo tudi, da je
+\begin{equation}
+var( \overline{X} ) = \frac{1}{n} \frac{N-n}{N-1} \sigma^2
+\end{equation}
+kjer je $\sigma^2$ populacijska varjanca. Nepristranska cenilka za $\sigma^2$ je
+\begin{equation}
+\hat{\sigma}^2 = \frac{N-1}{N(n-1)} \sum_{k=1}^{n}( X_k - \overline{X} )^2.
+\end{equation}
+Sledi:
+\begin{equation}
+\widehat{se(\overline{X})} = \sqrt{ \frac{1}{n} \frac{N-n}{N(n-1)} \sum_{k=1}^n (X_k - \overline{X} )^2.
+}
+\end{equation}
+
+\subsubsection*{Interval zaupanja}
+Iz navodil sledi, da je interval zaupanja enak $\overline{X} \pm 1,96 \cdot se( \overline{X} )$.
+
+\subsubsection*{Končne vrednosti}
+
+\subsection*{b)}
+
+Če stratificiramo, mora veljati 
+\begin{equation}
+\frac{n_k}{n} = \frac{N_k}{N},   \sum_{k=1}^k n_k = n .
+\end{equation}
+V našem primeru startificiramo po četrtih, torej $k=4$.
+Vemo:\\
+$N_1 = 10 149$ (\textit{severna četrt}),\\
+$N_2 = 10 390$ (\textit{vzgodna četrt}),\\
+$N_3 = 13 457$ (\textit{južna četrt}),\\
+$N_4 = 9 890$ (\textit{zahodna četrt}).
+Če malo obrnemo zgornjo enakost, dobimo
+\begin{equation}
+n_k = \frac{N_k}{N} n.
+\end{equation}
+Izračunamo za $k = 1,2,3,4$ in upoštevamo vrednosti $N_1,N_2,N_3,N_4$ ter $N = 43886$.\\
+Dobimo:
+\begin{equation}
+n_1 = \frac{10149}{43886} \cdot 400 = 92,5033 \rightarrow n_1 = 92,
+\end{equation}
+
+\begin{equation}
+n_2 = \frac{10390}{43886} \cdot 400 = 94, 699 \rightarrow n_2 = 95,
+\end{equation}
+
+\begin{equation}
+n_3 = \frac{13457}{43886} \cdot 400 = 122,654 \rightarrow n_3 = 123,
+\end{equation}
+
+\begin{equation}
+n_4 = \frac{9890}{43886} \cdot 400 = 90,142 \rightarrow n_4 = 90.
+\end{equation}
+
+Preverimo:
+\begin{equation}
+\sum_{k=1}^{4}n_k = 92+96+123+90 = 400.
+\end{equation}
+
+Naj bo sedaj $X_{kj}$ povprečni dohodek j-te družine v k-tem stratumu.\\
+Povprečni dohodek družine se sedaj izraža kot:
+\begin{equation}
+\overline{X} = \frac{1}{n} \sum_{k=1}^{\# stratumov} \sum_{j=1}^{n_k} X_{kj}.
+\end{equation}
+Standarna napaka $se(\overline{X}) = \sqrt{var( \overline{X})}$:
+\begin{equation}
+var(\overline{X}) = \sum_k w_k^2 var(\overline{X_k}))  = \sum_k w_k^2 \cdot \frac{\hat{\sigma}_k^2}{n_k} \cdot \frac{N_k-n_k}{N_k-1},
+\end{equation}
+kjer je $w_k = \frac{N_k}{N}$ delež, $\sigma_k^2$ pa populacijska varjanca v k-tem stratumu. Torej:
+\begin{equation}
+\hat{\sigma}^2 = \frac{N_k-1}{N_k(n_k-1)} \sum_{j=1}^{n_k} (X_{kj}-\overline{X_k})^2,
+\end{equation}
+kjer je $X_k$ povprečje k-tega stratuma.\\
+Interval zaupanja: $\overline{X} \pm 1,96 \cdot se(\overline{X})$. \\
+Vstavimo podatke in dobimo:
+
+
+\subsection*{c)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
