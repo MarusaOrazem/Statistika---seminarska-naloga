@@ -6,6 +6,8 @@
 \usepackage{amsmath}
 \usepackage{eurosym}
 
+
+
 \begin{document}
 
 \section*{1. NALOGA}
@@ -16,24 +18,24 @@ Populacija je velikosti $43886$. Vzamemo enostavni slučajni vzorec $400$ enot.\
 Sledi: $N = 43886, n = 400$.\\
 Naj bo $X_k$ skupni dohodek v k-ti družini.\\
 Torej je povprečni dohodek v Kindergradu: 
-\begin{equation}
+\begin{equation*}
 \overline{X} = \frac{X_1 + ... + X_n}{n}.
-\end{equation}
+\end{equation*}
 
 \subsubsection*{Standardna napaka}
 Vemo: $se( \overline{X} ) = \sqrt{var( \overline{X} )}$. Ker imamo enostavni slučajni vzorec, vemo tudi, da je
-\begin{equation}
+\begin{equation*}
 var( \overline{X} ) = \frac{1}{n} \frac{N-n}{N-1} \sigma^2
-\end{equation}
+\end{equation*}
 kjer je $\sigma^2$ populacijska varjanca. Nepristranska cenilka za $\sigma^2$ je
-\begin{equation}
+\begin{equation*}
 \hat{\sigma}^2 = \frac{N-1}{N(n-1)} \sum_{k=1}^{n}( X_k - \overline{X} )^2.
-\end{equation}
+\end{equation*}
 Sledi:
-\begin{equation}
+\begin{equation*}
 \widehat{se(\overline{X})} = \sqrt{ \frac{1}{n} \frac{N-n}{N(n-1)} \sum_{k=1}^n (X_k - \overline{X} )^2.
 }
-\end{equation}
+\end{equation*}
 
 \subsubsection*{Interval zaupanja}
 Iz navodil sledi, da je interval zaupanja enak $\overline{X} \pm 1,96 \cdot se( \overline{X} )$.
@@ -43,9 +45,9 @@ Iz navodil sledi, da je interval zaupanja enak $\overline{X} \pm 1,96 \cdot se( 
 \subsection*{b)}
 
 Če stratificiramo, mora veljati 
-\begin{equation}
+\begin{equation*}
 \frac{n_k}{n} = \frac{N_k}{N},   \sum_{k=1}^k n_k = n .
-\end{equation}
+\end{equation*}
 V našem primeru startificiramo po četrtih, torej $k=4$.
 Vemo:\\
 $N_1 = 10 149$ (\textit{severna četrt}),\\
@@ -53,51 +55,169 @@ $N_2 = 10 390$ (\textit{vzgodna četrt}),\\
 $N_3 = 13 457$ (\textit{južna četrt}),\\
 $N_4 = 9 890$ (\textit{zahodna četrt}).
 Če malo obrnemo zgornjo enakost, dobimo
-\begin{equation}
+\begin{equation*}
 n_k = \frac{N_k}{N} n.
-\end{equation}
+\end{equation*}
 Izračunamo za $k = 1,2,3,4$ in upoštevamo vrednosti $N_1,N_2,N_3,N_4$ ter $N = 43886$.\\
 Dobimo:
-\begin{equation}
+\begin{equation*}
 n_1 = \frac{10149}{43886} \cdot 400 = 92,5033 \rightarrow n_1 = 92,
-\end{equation}
+\end{equation*}
 
-\begin{equation}
+\begin{equation*}
 n_2 = \frac{10390}{43886} \cdot 400 = 94, 699 \rightarrow n_2 = 95,
-\end{equation}
+\end{equation*}
 
-\begin{equation}
+\begin{equation*}
 n_3 = \frac{13457}{43886} \cdot 400 = 122,654 \rightarrow n_3 = 123,
-\end{equation}
+\end{equation*}
 
-\begin{equation}
+\begin{equation*}
 n_4 = \frac{9890}{43886} \cdot 400 = 90,142 \rightarrow n_4 = 90.
-\end{equation}
+\end{equation*}
 
 Preverimo:
-\begin{equation}
+\begin{equation*}
 \sum_{k=1}^{4}n_k = 92+96+123+90 = 400.
-\end{equation}
+\end{equation*}
 
 Naj bo sedaj $X_{kj}$ povprečni dohodek j-te družine v k-tem stratumu.\\
 Povprečni dohodek družine se sedaj izraža kot:
-\begin{equation}
+\begin{equation*}
 \overline{X} = \frac{1}{n} \sum_{k=1}^{\# stratumov} \sum_{j=1}^{n_k} X_{kj}.
-\end{equation}
+\end{equation*}
 Standarna napaka $se(\overline{X}) = \sqrt{var( \overline{X})}$:
-\begin{equation}
+\begin{equation*}
 var(\overline{X}) = \sum_k w_k^2 var(\overline{X_k}))  = \sum_k w_k^2 \cdot \frac{\hat{\sigma}_k^2}{n_k} \cdot \frac{N_k-n_k}{N_k-1},
-\end{equation}
+\end{equation*}
 kjer je $w_k = \frac{N_k}{N}$ delež, $\sigma_k^2$ pa populacijska varjanca v k-tem stratumu. Torej:
-\begin{equation}
-\hat{\sigma}^2 = \frac{N_k-1}{N_k(n_k-1)} \sum_{j=1}^{n_k} (X_{kj}-\overline{X_k})^2,
-\end{equation}
+\begin{equation*}
+\hat{\sigma}_k^2 = \frac{N_k-1}{N_k(n_k-1)} \sum_{j=1}^{n_k} (X_{kj}-\overline{X_k})^2,
+\end{equation*}
 kjer je $X_k$ povprečje k-tega stratuma.\\
 Interval zaupanja: $\overline{X} \pm 1,96 \cdot se(\overline{X})$. \\
 Vstavimo podatke in dobimo:
 
 
 \subsection*{c)}
+
+\section*{2. NALOGA}
+
+\section*{3.NALOGA}
+\subsection*{a)}
+\begin{equation*}
+X\sim f(x,\alpha) =\begin{cases}
+ \frac{\Gamma(3\alpha)}{\Gamma(\alpha)\Gamma(2\alpha)} x^{\alpha-1}(1-x)^{2\alpha-1}, & 0<x<1.\\
+0, & sicer.
+\end{cases}
+\end{equation*}
+Vemo: 
+\begin{equation*}
+E(X) = \frac{1}{3}, var(X) = \frac{2}{9(3\alpha+1)}.
+\end{equation*}
+Ker je:
+\begin{equation*}
+var(X)=E(X^2)-E(X)^2,
+\end{equation*}
+sledi: 
+\begin{equation*}
+E(X^2) = var(X) + E(X)^2 = \frac{2}{9(3\alpha+1)} + \frac{1}{9} = 
+\frac{\alpha +1}{3(3\alpha+1)}
+\end{equation*}
+$E(X^2)$ je drugi moment slučajne spremenljivke X, torej:
+\begin{equation*}
+E(X^2) = \frac{1}{n} \sum_{i=1}^n X_i^2.
+\end{equation*}
+Zgornji enačbi izenačimo in poračunamo $\alpha$:
+\begin{equation*}
+ \frac{1}{n} \sum_{i=1}^n X_i^2 = \frac{\alpha +1}{3(3\alpha+1)}
+\end{equation*}
+\begin{equation*}
+\frac{9\alpha+3}{n} \sum_{i=1}^n X_i^2 = \alpha +1
+\end{equation*}
+\begin{equation*}
+\frac{9\alpha}{n} \sum_{i=1}^n X_i^2  - \alpha = 1 - \frac{3}{n}\sum_{i=1}^n X_i^2
+\end{equation*}
+\begin{equation*}
+\alpha = \frac{1 - \frac{3}{n}\sum_{i=1}^n X_i^2}{\frac{9}{n} \sum_{i=1}^n X_i^2  - 1}
+\end{equation*}
+
+\subsection*{b)}
+\begin{equation*}
+ f_X(x,\alpha) =\begin{cases}
+ \frac{\Gamma(3\alpha)}{\Gamma(\alpha)\Gamma(2\alpha)} x^{\alpha-1}(1-x)^{2\alpha-1}, & 0<x<1.\\
+0, & sicer.
+\end{cases}
+\end{equation*}
+
+\begin{equation*}
+L_1(\alpha|x) =  \frac{\Gamma(3\alpha)}{\Gamma(\alpha)\Gamma(2\alpha)} x^{\alpha-1}(1-x)^{2\alpha-1}
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+L(\alpha|x_1,...,x_n) =  L_1(\alpha|x_1) \cdot ... \cdot L_1(\alpha|x_n) =             \\ 
+ \left( \frac{\Gamma(3\alpha)}{\Gamma(\alpha)\Gamma(2\alpha)} \right)^n x_1^{\alpha-1} \cdot ... \cdot x_n^{\alpha-1} (1-x_1)^{2\alpha-1} \cdot ... \cdot (1-x_n)^{2\alpha-1}
+\end{split}
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+l(\alpha|x_1,...,x_n) = ln( L(\alpha|x_1,...,x_n)) = 
+l_1(\alpha|x_1) + ... + l_1(\alpha|x_n)
+\end{split}
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+l_1(\alpha|x) = ln(L_1(\alpha|x)) =\\ ln(\Gamma(3\alpha)) - ln(\Gamma(\alpha)) - ln(\Gamma(2\alpha)) + (\alpha-1)ln(x) + (2\alpha-1)ln(1-x)
+\end{split}
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+l(\alpha|x) =\\ \sum_{i=1}^n\left( ln(\Gamma(3\alpha)) - ln(\Gamma(\alpha)) - ln(\Gamma(2\alpha)) + (\alpha-1)ln(x_i) + (2\alpha-1)ln(1-x_i) \right)
+\end{split}
+\end{equation*}
+
+\begin{equation*}
+\frac{\partial l}{\partial \alpha} = \sum_{i = 1}^n \frac{1}{\Gamma(3\alpha)} \Gamma^{'}(3\alpha) 3 -
+\frac{1}{\Gamma(\alpha)} \Gamma^{'}(\alpha) - \frac{1}{\Gamma(2\alpha)} \Gamma^{'}(2\alpha) 2 +
+ln(x_i) + 2ln(1-x_i)
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+\sum_{i = 1}^n \frac{1}{\Gamma(3\alpha)} \Gamma^{'}(3\alpha) 3 -
+\frac{1}{\Gamma(\alpha)} \Gamma^{'}(\alpha) - \frac{1}{\Gamma(2\alpha)} \Gamma^{'}(2\alpha) 2 =
+ln(\frac{1}{x_i(1-x_i)})
+\end{split}
+\end{equation*}
+Cenilka obstaja, ko ima zgornja enačba rešitev.\\
+\textit{Uporabimo funkcijo digamma in rešimo do konca? no clue.}
+
+\subsection*{c)}
+$var(\hat{\alpha}) = \frac{1}{nI_1(\hat{\alpha})}$.
+\begin{equation*}
+I_1(\hat{\alpha}) = -E\left[  \frac{\partial^2l_1(\alpha|x)}{\partial \alpha^2}   \right]
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+\frac{\partial^2l_1(\alpha|x)}{\partial \alpha^2} =\\  3\frac{\Gamma^{''}(3\alpha)\Gamma(3\alpha) - \Gamma^{'}(3\alpha)^2}{\Gamma(3\alpha)^2} -
+\frac{\Gamma^{''}(\alpha)\Gamma(\alpha) - \Gamma^{'}(\alpha)^2}{\Gamma(\alpha)^2} -
+2\frac{\Gamma^{''}(2\alpha)\Gamma(2\alpha) - \Gamma^{'}(2\alpha)^2}{\Gamma(2\alpha)^2}
+\end{split}
+\end{equation*}
+
+\begin{equation*}
+var(\hat{\alpha}) =\frac{1}{n} \frac{1}{ 3\frac{\Gamma^{''}(3\alpha)\Gamma(3\alpha) - \Gamma^{'}(3\alpha)^2}{\Gamma(3\alpha)^2} -
+\frac{\Gamma^{''}(\alpha)\Gamma(\alpha) - \Gamma^{'}(\alpha)^2}{\Gamma(\alpha)^2} -
+2\frac{\Gamma^{''}(2\alpha)\Gamma(2\alpha) - \Gamma^{'}(2\alpha)^2}{\Gamma(2\alpha)^2}}
+\end{equation*}
+
+
+
 
 
 
