@@ -6,7 +6,7 @@
 \usepackage{amsmath}
 \usepackage{eurosym}
 
-
+\newtheorem{theorem}{Theorem}
 
 \begin{document}
 
@@ -104,6 +104,81 @@ Variance znotraj četrti:\\
 Variance med četrtmi dobimo tako, da izračunamo povprečje dohodka v vsaki četrti, jo primerno obtežimo in izračunamo varjanco. Torej dobimo:
 
 \section*{2. NALOGA}
+\subsubsection*{a)}
+Poglavje 7.5.2, stran 30 nam pove da je:
+\begin{equation*}
+var(\overline{X}_s) \approx \sum_{l=1}^L \frac{W_l^2 \sigma_l^2}{n_l}.
+\end{equation*}
+Uporabimo izrek (Theorem A) iz poglavja 7.5.3 na strani 232. \\
+\textbf{Izrek}: Velikosti vzorcev $n_1,...,n_L$, ki minimizirajo $var(\overline{X}_s)$, pri pogoju $n_1+\cdots + n_L = n$, so podane z naslednjo enačbo:
+
+\begin{equation*}
+n_l = n\frac{W_l \sigma_l}{\sum_{k=1}^L Q_k\sigma_k},
+\end{equation*}
+kjer je l = 1,...,L.\\
+
+Od tod direktno sledi, da so naše minimalne vrednosti:
+\begin{equation*}
+n_i = n \frac{W_i \sigma_i}{\sum_{l=1}^K W_l \sigma_l}
+\end{equation*}
+
+
+\subsubsection*{b)}
+Ta del naloge je podoben a) primeru, le da je naš začetni pogoj drugačen. Zato sledimo dokazu zgornjega izreka, le da spremenimo pogoj. Dokaz je na strani 233, poglavje 7.5.3.\\
+Uporabimo tako imenovani vezani ekstrem ali Lagrangev multiplikator.
+\begin{equation*}
+L(n_1,...,n_K, \lambda) = \sum_{k=1}^K \frac{W_k^2\sigma_k^2}{n_k} + \lambda \left(  C_0 + \sum_{k=1}^K n_k C_k - C\right)
+\end{equation*}
+Iščemo ekstreme, zato parcialno odvajamo L.
+\begin{equation*}
+\frac{\partial L}{\partial n_k} = -\frac{W_k\sigma^2_k}{n_k^2} + \lambda C_k,
+\end{equation*}
+za $k = 1,2,...,K$.\\
+Vse parcialne odvode enačimo z 0 in dobimo:
+\begin{equation*}
+n_k = \frac{W_k\sigma_k}{\sqrt{\lambda C_k}}
+\end{equation*}
+Vemo: $n = n_1+\cdots + n_K$. Torej:
+\begin{equation*}
+n = \sum_{k=1}^K n_k = \sum_{k=1}^K \frac{W_k\sigma_k}{\sqrt{\lambda C_k}} = \frac{1}{\sqrt{\lambda}}\sum_{k=1}^K \frac{W_k\sigma_k}{\sqrt{C_k}}
+\end{equation*}
+Sledi:
+\begin{equation*}
+\sqrt{\lambda }=   \frac{1}{n} \sum_{k=1}^K \frac{W_k\sigma_k}{\sqrt{C_k}} 
+\end{equation*}
+Končno sledi:
+\begin{equation*}
+n_k = \frac{nW_k\sigma_k}{\sqrt{C_k}\sum_{i=1}^K \frac{W_i\sigma_i}{\sqrt{C_i}}}
+\end{equation*}
+
+\subsubsection*{c)}
+V tem primeru želimo minimizirati stroške. Torej bomo zapisali vezani ekstrem za stroške raziskave, pri predpisani natančnosti. Torej:
+\begin{equation*}
+L(n_1,...,n_K,\lambda) = C_0 + \sum_{k=1}^KC_kn_k + \lambda  \sum_{k=1}^K \frac{W_k^2\sigma_k^2}{n_k}
+\end{equation*}
+Postopamo kot v prejšnjih točkah:
+\begin{equation*}
+\frac{\partial L}{\partial n_i} = C_i - \lambda \frac{W_i^2\sigma_i^2}{n_i^2} = 0,
+\end{equation*}
+za $i = 1,2,...,K$.\\
+Računamo:
+\begin{equation*}
+n_i = \sqrt{\frac{\lambda}{C_i}} W_i \sigma_i.
+\end{equation*}
+
+\begin{equation*}
+n = \sum_{i = 1}^K n_i = \sum_{i=1}^K \sqrt{\frac{\lambda}{C_i}} W_i \sigma_i = \sqrt{\lambda}\sum_{i=1}^K \sqrt{\frac{1}{C_i}} W_i \sigma_i
+\end{equation*}
+
+\begin{equation*}
+\sqrt{\lambda}  =\frac{n}{\sum_{i=1}^K \sqrt{\frac{1}{C_i}} W_i \sigma_i}
+\end{equation*}
+Torej:
+\begin{equation*}
+n_i = \frac{n}{\sqrt{C_i}\sum_{j=1}^K \sqrt{\frac{1}{C_j}} W_j \sigma_j} W_i \sigma_i.
+\end{equation*}
+
+
 
 \section*{3.NALOGA}
 \subsection*{a)}
