@@ -100,6 +100,8 @@ Vstavimo podatke in dobimo:
 
 
 \subsection*{c)}
+Variance znotraj četrti:\\
+Variance med četrtmi dobimo tako, da izračunamo povprečje dohodka v vsaki četrti, jo primerno obtežimo in izračunamo varjanco. Torej dobimo:
 
 \section*{2. NALOGA}
 
@@ -218,6 +220,63 @@ var(\hat{\alpha}) =\frac{1}{n} \frac{1}{ 3\frac{\Gamma^{''}(3\alpha)\Gamma(3\alp
 
 
 \section*{4.NALOGA}
+Za reševanje te naloge, sem si pomagala s knjigo \textit{Mathematical statistics and data analysis}. Iz poglavja 9.5, na strani 341, izvemo, da če imamo model, kjer so verjetnosti vektorsko porazdeljene in imamo opis za hipotezo $H_0$, kjer je $p = p(\theta)$, kjer je $\theta$ neznam, je števec za verjetnostno funkcijo enak:
+\begin{equation*}
+\max_{p\in \omega_0} \left(  \frac{n!}{x_1!...x_m!} \right) p_1(\theta)^{x_1} \cdots p_m(\theta)^{x_m},
+\end{equation*}
+kjer so $x_i$ opazovane vrednosti v $m$ celicah.
+Maksimum bo dosežen pri:
+\begin{equation*}
+\hat{p_i} =  \frac{x_i}{n}.
+\end{equation*}
+Razmerje verjetij je tako enako:
+\begin{equation*}
+\Lambda= \frac{\frac{n!}{x_1!...x_m!}  p_1(\hat{\theta})^{x_1} \cdots p_m(\hat{\theta})^{x_m}}{\frac{n!}{x_1!...x_m!}  \hat{p_1}^{x_1} \cdots \hat{p_m}^{x_m}}.
+\end{equation*}
+
+Poglejmo sedaj naš primer. Podatke imamo podane v razpredelnici za $m=0,1,...,12.$, $n = \text{\# podatkov} = 6115.$ Oprazovane vrednosti $x_1,...,n_{12}$ prebermo iz drugega stolpca v tabeli. Računamo po postopku opisanem zgoraj:
+\begin{equation*}
+\max \left( \frac{6115!}{7! 45! 181! \cdots 24!3!}  \right) p_1^7 p_2^{45}\cdots p_{12}^3
+\end{equation*}
+Maksimum je torej dosežen pri:
+\begin{equation*}
+\hat{p}_1 = \frac{7}{6115}, \hat{p}_2 = \frac{45}{6115}, \cdots, \hat{p}_{12} = \frac{3}{6115}, 
+\end{equation*}
+Poračunati moramo še imenovalec ulomka, da bomo dobili razmerje verjetij. Testirati želimo hipotezo, da je število moških potomcov, ki se rodijo v družini z 12 otroci, porazdeljeno binomsko $Bin(12,p)$. Torej je verjetnostna funkcija L enaka:
+\begin{equation*}
+L = \left( \frac{6115!}{7! 45! 181! \cdots 24!3!}  \right) \left( (1-p)^{12} \right)^7 \left( 2p(1-p)^{11}\right)^{45} \cdots \left( p^{12}\right)^3.
+\end{equation*}
+Izraz logaritmiramo in odvajamo po p, izračunamo maksimum.
+\begin{equation*}
+\frac{\partial l}{\partial p} = 0.
+\end{equation*}
+Po krajšem izračunu dobimo:
+\begin{equation*}
+\frac{35280}{p} = \frac{38100}{1-p}
+\end{equation*}
+Tako dobimo:
+\begin{equation*}
+\hat{p} = \frac{35280}{73380} = 0.4807849550286182.
+\end{equation*}
+Torej po Wilkinsonovem izreku zapišemo:
+\begin{equation*}
+\lambda = 2ln(\Lambda) = 2 l(\hat{p}_0,...,\hat{p}_{12}) - 2l(\hat{p})
+\end{equation*}
+Vstavimo zgoraj poračunane vrednosti:
+\begin{equation*}
+2\left( 7ln(\hat{p}_1) + 45ln(\hat{p}_2)\cdots 3ln(\hat{p}_{12}) \right)- 2 \left( 7*12ln(1-\hat{p}) + 45(ln(12\hat{p})+11ln(1-\hat{p})) + \cdots + 3*12ln(\hat{p})\right)
+\end{equation*}
+Ko vstavimo podatke dobimo:
+\begin{equation*}
+\lambda = 97.0065.
+\end{equation*}
+Wilksov izrek nam pove, da bomo hipotezo zavrnili, če je $\lambda > \chi^2_{1-\alpha}(dim\Omega - dim\Omega_0)$.
+Dimenziji prostorov sta očitni: $dim\Omega - dim\Omega_0 = 12-1 = 11$. Testitamo za $\alpha = 0.01 $ in $\alpha = 0.05$. Iz tabele preberemo vrednosti in dobimo:
+\begin{equation*}
+\chi^2_{0.99}(11) = 19.68, \chi^2_{0.95}(11) = 24.72.
+\end{equation*}
+Vidimo, da sta vrednosti v obeh primerih manjši od $\lambda$, zato hipotezo v obeh primerih zavrnemo.\\
+Model bi lahko bil napačen iz več razlogov. Eden bi bil naprimer, da nismo upoštevali vsa rojstva, vendar le preživele otroke. Lahko, da smo zbrali podatke v različnih zgodovinskih obdobjih, katera vplivajo na rojstva otrok (vojna in podobno).
 
 \section*{5.NALOGA}
 \subsubsection*{Ocen po metodi največjega verjetja}
