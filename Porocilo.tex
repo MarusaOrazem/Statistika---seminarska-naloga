@@ -303,7 +303,7 @@ Najprej poračunamo za prvi parameter $\beta_0$. Enačbo odvajamo po $\beta_0$ i
 \begin{equation*}
 \begin{split}
 \frac{\partial}{\partial\beta_0} log(L) = \frac{\partial}{\partial\beta_0} (  -nlog(\sigma) - \frac{n}{2}log(2\pi)-\frac{1}{2\sigma^2}\sum_{i=1}^n (y_i-\beta_o-\beta_1x_i)^2)=\\
-= -\frac{1}{\sigma^2}\sum_{i=1}^n(y_i-\beta_o-\beta_1x_i)
+= \frac{1}{\sigma^2}\sum_{i=1}^n(y_i-\beta_o-\beta_1x_i)
 \end{split}
 \end{equation*}
 Dobimo:
@@ -316,14 +316,14 @@ Sledi:
 \end{equation*}
 Torej je končni rezultat enak:
 \begin{equation*}
-\beta_o = \frac{1}{n} \sum_{i=1}^n y_i - \beta_1\sum_{i=1}^nx_i.
+\beta_o = \frac{1}{n}\left( \sum_{i=1}^n y_i - \beta_1\sum_{i=1}^nx_i \right).
 \end{equation*}
 
 Postopek ponovimo za drugi parameter $\beta_1$:
 \begin{equation*}
 \begin{split}
 \frac{\partial}{\partial\beta_1} log(L) = \frac{\partial}{\partial\beta_1} (  -nlog(\sigma) - \frac{n}{2}log(2\pi)-\frac{1}{2\sigma^2}\sum_{i=1}^n (y_i-\beta_o-\beta_1x_i)^2)=\\
-= -\frac{1}{\sigma^2}\sum_{i=1}^n x_i(y_i-\beta_0-\beta_1x_i)
+= \frac{1}{\sigma^2}\sum_{i=1}^n x_i(y_i-\beta_0-\beta_1x_i)
 \end{split}
 \end{equation*}
 
@@ -334,35 +334,40 @@ Dobimo:
 
 Sledi:
 \begin{equation*}
-\sum_{i=1}^nx_iy_i-n\beta_o-\beta_1\sum_{i=1}^nx_i = 0.
+\sum_{i=1}^nx_iy_i-\beta_o\sum_{i=1}^nx_i-\beta_1\sum_{i=1}^nx_i^2 = 0.
 \end{equation*}
 
-\begin{equation*}
-\sum_{i=1}^nx_iy_i-n\beta_o-\beta_1\sum_{i=1}^nx_i = 0.
-\end{equation*}
 Vstavimo vrednost za $\beta_0$:
 \begin{equation*}
-\sum_{i=1}^nx_iy_i-n\left(\frac{1}{n} \sum_{i=1}^n y_i - \beta_1\sum_{i=1}^nx_i\right)-\beta_1\sum_{i=1}^nx_i = 0.
+\sum_{i=1}^nx_iy_i-\frac{1}{n}\left( \sum_{i=1}^n y_i - \beta_1\sum_{i=1}^nx_i \right)\sum_{i=1}^nx_i-\beta_1\sum_{i=1}^nx_i^2 = 0.
 \end{equation*}
 \begin{equation*}
-\sum_{i=1}^nx_iy_i- \sum_{i=1}^n y_i - \beta_1\left(n\sum_{i=1}^nx_i-\sum_{i=1}^nx_i\right) = 0.
+\sum_{i=1}^nx_iy_i- \frac{1}{n}\sum_{i=1}^n y_i \sum_{i=1}^n x_i- \beta_1\left(-\frac{1}{n}\sum_{i=1}^nx_i\sum_{i=1}^nx_i+\sum_{i=1}^nx_i^2\right) = 0.
 \end{equation*}
 
 
 Torej je končni rezultat enak:
 \begin{equation*}
-\beta_1 = \frac{\sum_{i=1}^nx_iy_i- \sum_{i=1}^n y_i}{n\sum_{i=1}^nx_i-\sum_{i=1}^nx_i}.
+\beta_1 = \frac{\sum_{i=1}^nx_iy_i- \frac{1}{n}\sum_{i=1}^n y_i \sum_{i=1}^n x_i}{-\frac{1}{n}\sum_{i=1}^nx_i\sum_{i=1}^nx_i+\sum_{i=1}^nx_i^2}
+\end{equation*}
+Oziroma:
+\begin{equation*}
+\beta_1 = \frac{n\sum_{i=1}^nx_iy_i- \sum_{i=1}^n y_i \sum_{i=1}^n x_i}{n\sum_{i=1}^nx_i^2-\sum_{i=1}^nx_i\sum_{i=1}^nx_i}
 \end{equation*}
 
 Vstavimo še za $\beta_0$:
 \begin{equation*}
-\beta_o = \frac{1}{n} \sum_{i=1}^n y_i -  \frac{\sum_{i=1}^nx_iy_i- \sum_{i=1}^n y_i}{n\sum_{i=1}^nx_i-\sum_{i=1}^nx_i}\sum_{i=1}^nx_i.
+\beta_o = \frac{1}{n} \left(\sum_{i=1}^n y_i - \frac{n\sum_{i=1}^nx_iy_i- \sum_{i=1}^n y_i \sum_{i=1}^n x_i}{n\sum_{i=1}^nx_i^2-\sum_{i=1}^nx_i\sum_{i=1}^nx_i}\sum_{i=1}^nx_i \right).
 \end{equation*}
 \begin{equation*}
-\beta_o = \frac{1}{n} \sum_{i=1}^n y_i -  \frac{\sum_{i=1}^nx_i\sum_{i=1}^nx_iy_i- \sum_{i=1}^nx_i\sum_{i=1}^n y_i}{n\sum_{i=1}^nx_i-\sum_{i=1}^nx_i}.
+\beta_o = \frac{1}{n} \left(\sum_{i=1}^n y_i - \frac{n\sum_{i=1}^nx_iy_i \sum_{i=1}^nx_i - \sum_{i=1}^n y_i \sum_{i=1}^n x_i\sum_{i=1}^nx_i }{n\sum_{i=1}^nx_i^2-\sum_{i=1}^nx_i\sum_{i=1}^nx_i}\right).
 \end{equation*}
 \begin{equation*}
-\beta_o = \frac{\sum_{i=1}^nx_i\sum_{i=1}^ny_i - \frac{1}{n}\sum_{i=1}^nx_i\sum_{i=1}^ny_i    -\sum_{i=1}^nx_i\sum_{i=1}^nx_iy_i+ \sum_{i=1}^nx_i\sum_{i=1}^n y_i}{n\sum_{i=1}^nx_i-\sum_{i=1}^nx_i}.
+\beta_o =  \frac{1}{n}\frac{n\sum_{i=1}^n y_i \sum_{i=1}^n x_i^2 - \sum_{i=1}^ny_i\sum_{i=1}^nx_i\sum_{i=1}^nx_i-n\sum_{i=1}^nx_iy_i \sum_{i=1}^nx_i + \sum_{i=1}^n y_i \sum_{i=1}^n x_i\sum_{i=1}^nx_i }{n\sum_{i=1}^nx_i^2-\sum_{i=1}^nx_i\sum_{i=1}^nx_i}.
+\end{equation*}
+Končni rezultat:
+\begin{equation*}
+\beta_o =  \frac{\sum_{i=1}^n y_i \sum_{i=1}^n x_i^2 -\sum_{i=1}^nx_iy_i \sum_{i=1}^nx_i}{n\sum_{i=1}^nx_i^2-\sum_{i=1}^nx_i\sum_{i=1}^nx_i}.
 \end{equation*}
 
 
@@ -457,7 +462,7 @@ n & \sum_{i=1}^nx_i\\
 \end{bmatrix}
 \end{equation*}
 
-Z malo računanja in spretnosti vidimo da sta cenilki enaki.
+Zgornjo vrstico primerjamo z $\beta_0$, ki smo jo dobili po metodi največjega verjetja, spodnjo pa z $\beta_1$. Vidimo, da sta enaki.
 
 
 
